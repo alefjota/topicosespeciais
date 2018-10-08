@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Entity
 public class Candidato implements Serializable{
-private static final long serialVersionUID = 1L;
+	private static final long serialVersionUID = 1L;
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -17,9 +17,9 @@ private static final long serialVersionUID = 1L;
 	private String nomeCandidato;
 	private Integer numeroCandidato;
 	private String siglaPartido;
-
+	
 	public Candidato() {
-
+		
 	}
 
 	public Candidato(Integer id, String nomeCandidato, Integer numeroCandidato, String siglaPartido) {
@@ -67,9 +67,6 @@ private static final long serialVersionUID = 1L;
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((nomeCandidato == null) ? 0 : nomeCandidato.hashCode());
-		result = prime * result + ((numeroCandidato == null) ? 0 : numeroCandidato.hashCode());
-		result = prime * result + ((siglaPartido == null) ? 0 : siglaPartido.hashCode());
 		return result;
 	}
 
@@ -86,21 +83,6 @@ private static final long serialVersionUID = 1L;
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (nomeCandidato == null) {
-			if (other.nomeCandidato != null)
-				return false;
-		} else if (!nomeCandidato.equals(other.nomeCandidato))
-			return false;
-		if (numeroCandidato == null) {
-			if (other.numeroCandidato != null)
-				return false;
-		} else if (!numeroCandidato.equals(other.numeroCandidato))
-			return false;
-		if (siglaPartido == null) {
-			if (other.siglaPartido != null)
-				return false;
-		} else if (!siglaPartido.equals(other.siglaPartido))
 			return false;
 		return true;
 	}

@@ -10,25 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 import eleicao.domain.Candidato;
 import eleicao.services.CandidatoService;
 
-
 @RestController
 @RequestMapping(value="/candidatos")
 public class CandidatoResource {
 	
 	@Autowired
-	private CandidatoService service;
+	private CandidatoService servico;
 	
-	@RequestMapping(value="/{id}",method=RequestMethod.GET)
-	public ResponseEntity<?> listar(@PathVariable Integer id) {
+	@RequestMapping(value="/{id}", method=RequestMethod.GET)
+	public ResponseEntity<?> find(@PathVariable Integer id){
+		Candidato candit1 = servico.BuscarCandidatos(id);
 		
-		Candidato obj = service.buscar(id);
-		
-
-		return ResponseEntity.ok().body(obj);
-		
-		
-		
-		
+		return ResponseEntity.ok().body(candit1);
 	}
-	
 }
