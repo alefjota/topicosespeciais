@@ -22,6 +22,7 @@ import fvs.edu.br.topicos.enums.TipoCliente;
 public class Cliente implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer id;
@@ -30,7 +31,7 @@ public class Cliente implements Serializable {
 	private String cpfOuCnpj;
 	private TipoCliente tipo;
 
-	@OneToMany(mappedBy="cliente")
+	@OneToMany
 	private List<Endereco> endereco = new ArrayList<>();
 
 	@ElementCollection
@@ -38,16 +39,8 @@ public class Cliente implements Serializable {
 	private Set<String> telefones = new HashSet<>();
 
 	@JsonIgnore
-	@OneToMany(mappedBy="cliente")
+	@OneToMany(mappedBy = "cliente")
 	private List<Pedido> pedidos = new ArrayList<>();
-
-	public List<Pedido> getPedidos() {
-		return pedidos;
-	}
-
-	public void setPedidos(List<Pedido> pedidos) {
-		this.pedidos = pedidos;
-	}
 
 	public Cliente() {
 
